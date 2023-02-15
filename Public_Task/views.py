@@ -1,6 +1,6 @@
-from rest_framework import generics
+from rest_framework import generics,status
 from rest_framework.response import Response
-from .serializers import TaskSerializer
+from .serializers import PublicTaskTogle, TaskSerializer
 from .models import Task
 
 
@@ -36,4 +36,19 @@ class TaskView(generics.CreateAPIView,
     def delete(self, request, *args, **kwargs):
         return super().delete(request, *args, **kwargs)
         
+
+
+
+class ToggleForUpdateStatusForTaskPublic(generics.UpdateAPIView):
+    serializer_class = PublicTaskTogle
     
+    # Returns an object instance
+    
+    def get_object(self):
+        return Task.objects.get(id=self.request.data.get('task_id'))
+    
+    # Api to mark the task as complete / Incomplete
+    
+    def patch(self, request, *args, **kwargs):
+        super().update(request, *args, **kwargs)
+        return Response({'message':'Task Status Updated Successfully'}, status=status.HTTP_200_OK)

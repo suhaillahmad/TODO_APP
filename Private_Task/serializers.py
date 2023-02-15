@@ -1,4 +1,4 @@
-from .models import *
+from .models import User, PrivateTaskModel
 from django.core.exceptions import ValidationError
 from rest_framework import serializers
 from django.contrib.auth import authenticate
@@ -45,4 +45,23 @@ class LoginSerializer(serializers.Serializer):
         return data
         
     def create(self, validated_data):
+        return validated_data
+
+class PrivateTaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PrivateTaskModel
+        fields = '__all__'
+
+class PrivateTaskTogle(serializers.Serializer):
+    task_id = serializers.CharField(write_only=True)
+    
+    def update(self, instance, validated_data):
+        task = PrivateTaskModel.objects.get(id=validated_data['task_id'])
+        
+        if task.is_completed == True:
+            task.is_completed = False
+        else:
+            task.is_completed = True
+        
+        task.save()
         return validated_data
