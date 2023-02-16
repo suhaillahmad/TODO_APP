@@ -14,7 +14,7 @@ from pathlib import Path
 import dotenv
 import os
 from datetime import timedelta
-dotenv.read_dotenv()
+dotenv.load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -89,6 +89,9 @@ DATABASES = {
        'PORT': os.environ.get('DATABASE_PORT')
    }
 }
+
+
+
 
 
 # Password validation
