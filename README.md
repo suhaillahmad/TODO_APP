@@ -212,8 +212,14 @@ The Request and Response for other `Private api` are same as the `Public api` Th
 
 ## Docker Commands
 
-```docker compose run web python manage.py makemigrations```
-```docker compose run web python manage.py migrate```
-```docker compose up```
+```
+docker compose run web python manage.py makemigrations
+```
+```
+docker compose run web python manage.py migrate
+```
+```
+docker compose up
+```
 
 Hosted Link - `https://TODOAPP-1.suhailahmad4.repl.co`
