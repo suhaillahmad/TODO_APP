@@ -19,7 +19,7 @@ class TaskView(generics.CreateAPIView,
     # Get API for getting Completed and Not Completed Task
     
     def get_queryset(self):
-        return Task.objects.filter(is_completed=str(self.request.GET.get('completed')).capitalize()).order_by('-time')
+        return Task.objects.all().order_by('-time')
     
     # Post API For Creating Task
     
