@@ -4,6 +4,6 @@ from .views import Registration,LoginView,PrivateTaskView,ToggleForUpdateStatusF
 urlpatterns = [
     path('Register/', Registration.as_view()),
     path('login/', LoginView.as_view()),
-    path('private_task/', PrivateTaskView.as_view()),
+    path('task/', PrivateTaskView.as_view()),
     path('task_status_update/', ToggleForUpdateStatusForTask.as_view())
 ]
