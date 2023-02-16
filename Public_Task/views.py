@@ -14,7 +14,7 @@ class TaskView(generics.CreateAPIView,
     # Returns an object instance
     
     def get_object(self):
-        return Task.objects.get(id=self.request.data.get('task_id'))
+        return Task.objects.get(id=self.request.GET.get('task_id'))
     
     # Get API for getting Completed and Not Completed Task
     
@@ -45,7 +45,7 @@ class ToggleForUpdateStatusForTaskPublic(generics.UpdateAPIView):
     # Returns an object instance
     
     def get_object(self):
-        return Task.objects.get(id=self.request.data.get('task_id'))
+        return Task.objects.get(id=self.request.GET.get('task_id'))
     
     # Api to mark the task as complete / Incomplete
     
