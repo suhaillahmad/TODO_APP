@@ -222,4 +222,5 @@ docker compose run web python manage.py migrate
 docker compose up
 ```
 
-Hosted Link - `https://TODOAPP-1.suhailahmad4.repl.co`
+Hosted Link - ```
+https://TODOAPP-1.suhailahmad4.repl.co```
