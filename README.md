@@ -4,7 +4,7 @@ This is a Django based REST API for a simple Todo application. The API allows th
 
 ## Installation
 
-Clone the docker branch and run the following command:
+Clone the main branch and run the following command:
 
 ```CMD
 docker compose up --build
